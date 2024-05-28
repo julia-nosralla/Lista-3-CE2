@@ -3,4 +3,4 @@
 *Membros do grupo:*
 - Leonardo Saraiva
 - Júlia Lima Nosralla
-- Analyce R. S. Nunes
+- Analyce Rayssa
