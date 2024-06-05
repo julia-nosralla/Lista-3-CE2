@@ -1,0 +1,56 @@
+--- 
+title: "API's"
+format: 
+  revealjs:
+    embed-resources: true
+    theme: default
+    title-slide-attributes: 
+      data-background-image: background.jpg
+editor: visual
+transition: slide
+center: true
+
+---
+
+# O que são API's? {background-image=background.jpg}
+
+ - API é a sigla para Application Programming Interface. É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados e recursos. 
+ 
+ - Assim, as API's possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
+ 
+# Tipos de API {background-image=background.jpg}
+
+## APIs privadas {background-image=background.jpg}
+
+São internas de uma empresa e são usadas apenas para conectar sistemas e dados dentro da empresa.
+
+## APIs públicas {background-image=background.jpg}
+
+São abertas ao público e podem ser usadas por qualquer pessoa. Pode ou não haver alguma autorização e custo associado a esses tipos de APIs.
+
+## APIs de parceiros {background-image=background.jpg}
+
+Estas são acessíveis apenas por desenvolvedores externos autorizados para auxiliar as parcerias entre empresas.
+ 
+# Como utilizar? {background-image=background.jpg}
+
+ - As APIs funcionam através de um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar. 
+
+ - Elas estabelecem métodos de requisição, formatos de dados aceitos e retornados, autenticação e autorização de acesso, entre outros aspectos técnicos. 
+
+ - Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas. 
+ 
+
+# Exemplos de API {background-image=background.jpg}
+
+## API Open IA {background-image=background.jpg}
+
+asxvfyashcdscwhcix
+  
+## API Google Maps/Weather {background-image=background.jpg}
+
+dsvcgfuatfgvyuksev
+
+## PokéAPI {background-image=background.jpg}
+
+szdhfvbcareygkaud
