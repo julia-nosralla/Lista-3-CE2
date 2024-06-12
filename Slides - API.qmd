@@ -14,10 +14,10 @@ center: true
 
 # O que são API's? {background-image=background.jpg}
 
- - API é a sigla para Application Programming Interface. É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados e recursos. 
- 
- - Assim, as API's possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
- 
+- API é a sigla para Application Programming Interface. É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados e recursos. 
+
+- Assim, as API's possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
+
 # Tipos de API {background-image=background.jpg}
 
 ## APIs privadas {background-image=background.jpg}
@@ -34,20 +34,37 @@ Estas são acessíveis apenas por desenvolvedores externos autorizados para auxi
  
 # Como utilizar? {background-image=background.jpg}
 
- - As APIs funcionam através de um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar. 
+- As APIs funcionam através de um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar. 
 
- - Elas estabelecem métodos de requisição, formatos de dados aceitos e retornados, autenticação e autorização de acesso, entre outros aspectos técnicos. 
+- Elas estabelecem métodos de requisição, formatos de dados aceitos e retornados, autenticação e autorização de acesso, entre outros aspectos técnicos. 
 
- - Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas. 
+- Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas.
+
+## API call
+## Métodos de requisição
+
+- get: requisição para obter, visualizar ou extrair dados
+- post: requisição para criar novos dados
+- put: requisição para editar ou atualizar dados
+- delete: requisição para remover dados
  
+# Requisições e chaves de acesso
 
-# Exemplos de API {background-image=background.jpg}
+Key e keyless (no key)
 
-## API Open IA {background-image=background.jpg}
+# Por que JSON?
+
+Como converter um arquivo .json em tabela?
+
+# Exemplos {background-image=background.jpg}
+
+## Keyless
+
+## API OpenAI {background-image=background.jpg}
 
 asxvfyashcdscwhcix
-  
-## API Google Maps/Weather {background-image=background.jpg}
+
+## API Google Maps/Apple WeatherKit {background-image=background.jpg}
 
 dsvcgfuatfgvyuksev
 
