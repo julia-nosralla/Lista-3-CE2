@@ -32,7 +32,7 @@ São abertas ao público e podem ser usadas por qualquer pessoa. Pode ou não ha
 
 Estas são acessíveis apenas por desenvolvedores externos autorizados para auxiliar as parcerias entre empresas.
  
-# Como utilizar? {background-image=background.jpg}
+# Como funciona? {background-image=background.jpg}
 
 - As APIs funcionam através de um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar. 
 
@@ -40,25 +40,37 @@ Estas são acessíveis apenas por desenvolvedores externos autorizados para auxi
 
 - Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas.
 
-## API call
-## Métodos de requisição
+## API call {background-image=background.jpg}
+## Métodos de requisição {background-image=background.jpg}
 
 - get: requisição para obter, visualizar ou extrair dados
 - post: requisição para criar novos dados
 - put: requisição para editar ou atualizar dados
 - delete: requisição para remover dados
  
-# Requisições e chaves de acesso
+## Requisições e chaves de acesso {background-image=background.jpg}
 
 Key e keyless (no key)
 
-# Por que JSON?
+## Arquivos JSON {background-image=background.jpg}
 
-Como converter um arquivo .json em tabela?
+### Vantagens
+
+- Ao fazer uma requisição, os dados retornam em arquivos no formato JSON (Java Script Object Notation)
+
+- Simplicidade durante o acesso e o armazenamento de diferentes tipos de dados é uma das principais características dos arquivos JSON
+
+- Esse formato permite a interoperabilidade do formato entre tantos frameworks e linguagens diferentes
+
+- É facilmente legível tanto por máquinas quanto por humanos
+
+- Como converter um arquivo .json em tabela? 
+
+### Desvantagens
 
 # Exemplos {background-image=background.jpg}
 
-## Keyless
+## Keyless {background-image=background.jpg} 
 
 ## API OpenAI {background-image=background.jpg}
 
