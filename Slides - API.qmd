@@ -14,45 +14,103 @@ center: true
 
 # O que são API's? {background-image=background.jpg}
 
-- API é a sigla para Application Programming Interface. É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados e recursos. 
+## Definição {background-image=background.jpg}
 
-- Assim, as API's possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
+- API é a sigla para Application Programming Interface.
+
+- Analogia com UI.
+
+- É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados, serviços e recursos.
+
+- Possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
+
+- Em particular, permitem o acesso a dados, sem a necessidade de raspagem de superfície (scraping) ou coleta manual.
 
 # Tipos de API {background-image=background.jpg}
 
-## APIs privadas {background-image=background.jpg}
+## API's privadas {background-image=background.jpg}
 
 São internas de uma empresa e são usadas apenas para conectar sistemas e dados dentro da empresa.
 
-## APIs públicas {background-image=background.jpg}
+## API's públicas {background-image=background.jpg}
 
-São abertas ao público e podem ser usadas por qualquer pessoa. Pode ou não haver alguma autorização e custo associado a esses tipos de APIs.
+São abertas ao público e podem ser usadas por qualquer pessoa. 
 
-## APIs de parceiros {background-image=background.jpg}
+Pode ou não haver alguma autorização e/ou custo associado a esses tipos de APIs.
 
-Estas são acessíveis apenas por desenvolvedores externos autorizados para auxiliar as parcerias entre empresas.
+## API's de parceiros {background-image=background.jpg}
+
+Acessíveis apenas por desenvolvedores externos autorizados, em nome de empresas parceiras.
  
-# Como funciona? {background-image=background.jpg}
+# Como funcionam? {background-image=background.jpg}
 
-- As APIs funcionam através de um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar. 
+## Visão geral {background-image=background.jpg}
 
-- Elas estabelecem métodos de requisição, formatos de dados aceitos e retornados, autenticação e autorização de acesso, entre outros aspectos técnicos. 
+- As APIs funcionam através de um protocolo, um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar.
+
+- Elas estabelecem métodos de requisição, formatos de dados a serem recebidos ou retornados, autenticação e autorização de acesso, entre outros aspectos técnicos. 
 
 - Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas.
 
-## API call {background-image=background.jpg}
-## Métodos de requisição {background-image=background.jpg}
+## Etapas {background-image=background.jpg}
 
-- get: requisição para obter, visualizar ou extrair dados
-- post: requisição para criar novos dados
-- put: requisição para editar ou atualizar dados
-- delete: requisição para remover dados
+1. Uma **requisição** é enviada ao sistema que disponibiliza uma API (servidor) por um cliente (que pode ser um navegador, um aplicativo móvel ou outro servidor). Geralmente segue o protocolo HTTP (Hypertext Transfer Protocol).
+
+2. O servidor faz o **processamento** da requisição, que pode envolver uma consulta a uma base de dados ou acesso a outras funcionalidades.
+
+3. O servidor envia uma **resposta** ao cliente. Geralmente inclui um código de *status*, indicativo de sucesso ou falha na requisição, e os dados solicitados.
+
+## Métodos de requisição HTTP {background-image=background.jpg}
+
+Os principais métodos de requisição são:
+
+- `get`: requisição para obter, visualizar ou extrair dados;
+
+- `post`: requisição para criar ou enviar novos dados;
+
+- `put`: requisição para editar ou atualizar dados;
+
+- `delete`: requisição para remover dados.
  
 ## Requisições e chaves de acesso {background-image=background.jpg}
 
-Key e keyless (no key)
+- É comum que alguns sistemas exijam o uso de chaves para limitar e controlar a quantidade de requisições de acesso.
 
-## Arquivos JSON {background-image=background.jpg}
+- Essa medida visa a segurança do próprio sistema, garantindo a sua disponibilidade e evitando por exemplo ataques de negação de serviço (DoS).
+
+## Requisições e chaves de acesso {background-image=background.jpg}
+
+- Além de ajudar a detectar atividades suspeitas, as chaves de acesso também servem para identificar, monitorar e registrar quem consome a API, a fim de obter *insights* a respeito dos padrões de uso do serviço e aprimorá-lo.
+
+- Alguns sistemas monetizam o consumo das API's.
+
+- Ainda assim, alguns sistemas permitem que sejam feitas requisições *keyless*.
+
+## Endpoints {background-image=background.jpg}
+
+- *Endpoints* nada mais são do que funções ou recursos da API que, dado sua estrutura hierárquica (aninhada, ou em árvore), podem ser acessadas diretamente pelo sistema cliente. 
+
+- Para acessar um *endpoint* específico dentro de uma API, basta utilizarmos o URL (*Uniform Resource Locator*) principal da API seguido do caminho correspondente a esse *endpoint*.
+
+## Endpoints {background-image=background.jpg}
+
+### *Placeholders*
+
+É comum utilizarmos chaves `{}` como *placeholders* ao nos referirmos a *endpoints*.
+
+### Parâmetros de consulta
+
+Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultados de uma requisição. Ex.:
+
+```/usuarios?sexo=masculino```
+
+# {background-image=jason.PNG}
+
+## JSON {background-image=background.jpg}
+
+- Padrão de indústria
+
+## XML
 
 ### Vantagens
 
