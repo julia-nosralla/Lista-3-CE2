@@ -18,13 +18,11 @@ center: true
 
 - API é a sigla para Application Programming Interface.
 
-- Analogia com UI.
-
 - É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados, serviços e recursos.
 
 - Possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
 
-- Em particular, permitem o acesso a dados, sem a necessidade de raspagem de superfície (scraping) ou coleta manual.
+- Permitem o acesso a dados, sem a necessidade de raspagem de superfície (scraping) ou coleta manual.
 
 # Tipos de API {background-image=background.jpg}
 
@@ -88,7 +86,7 @@ Os principais métodos de requisição são:
 
 ## Endpoints {background-image=background.jpg}
 
-- *Endpoints* nada mais são do que funções ou recursos da API que, dado sua estrutura hierárquica (aninhada, ou em árvore), podem ser acessadas diretamente pelo sistema cliente. 
+- *Endpoints* são funções ou recursos da API que, dado sua estrutura hierárquica (aninhada, ou em árvore), podem ser acessadas diretamente pelo sistema cliente. 
 
 - Para acessar um *endpoint* específico dentro de uma API, basta utilizarmos o URL (*Uniform Resource Locator*) principal da API seguido do caminho correspondente a esse *endpoint*.
 
@@ -108,7 +106,7 @@ Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultad
 
 ## JSON {background-image=background.jpg}
 
-- Ao fazer uma requisição, os dados geralemente retornam em arquivos no formato JSON (Java Script Object Notation)
+- Ao fazer uma requisição, os dados geralmente retornam em arquivos no formato JSON (Java Script Object Notation)
 
 - Padrão de indústria
 
@@ -120,9 +118,13 @@ Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultad
 
 - É facilmente legível tanto por máquinas quanto por humanos
 
+- Estruturação hierárquica (conjunto chave-valor dentro de chaves)
+
 ## Desvantagens {background-image=background.jpg}
 
-- Segurança
+- Ausência de Data Type
+
+- Sem comentários
 
 ## XML {background-image=background.jpg}
 
@@ -130,12 +132,15 @@ Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultad
 
 ## Vantagens {background-image=background.jpg}
 
-- ahbdwevy
+- Melhor para trabalhar com grandes quanrtidades de dados
+
+- Permite comentários
 
 ## Desvantagens {background-image=background.jpg}
 
-- dbycgeiyrdi
+- Mais pesado e menos legível para humanos
 
+- Menos flexível 
 
 # Exemplos {background-image=background.jpg}
 
@@ -143,13 +148,21 @@ Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultad
 
 ### PokéAPI
 
-- Inicialmente, para mostrar de forma mais didática as etapas do processo de requisição, utilizaremos uma API pública sem chave que disponibiliza as informações de todos os pokemons. 
+- Inicialmente, para mostrar de forma mais didática as etapas do processo de requisição, utilizaremos uma API pública sem chave que disponibiliza as informações de todos os pokemons presentes nos jogos. 
+
+- [PokéAPI](https://pokeapi.co/)
 
 ## API OpenAI {background-image=background.jpg}
 
-asxvfyashcdscwhcix
-
 ## API OpenWeather {background-image=background.jpg}
 
-dsvcgfuatfgvyuksev
+# Site com várias API's públicas
 
+- [publicapis.io](https://publicapis.io)
+
+# Referências
+
+- [https://www.alura.com.br/artigos/api](https://www.alura.com.br/artigos/api)
+- [https://blog.platformbuilders.io/o-que-sao-apis/](https://blog.platformbuilders.io/o-que-sao-apis/)
+- [https://aws.amazon.com/pt/compare/the-difference-between-json-xml/](https://aws.amazon.com/pt/compare/the-difference-between-json-xml/)
+-[https://blog.betrybe.com/json/](https://blog.betrybe.com/json/)
