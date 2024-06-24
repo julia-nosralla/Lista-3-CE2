@@ -1,0 +1,35 @@
+<usuario>
+  <id>123</id>
+  <nome>João Silva</nome>
+  <email>joao.silva@example.com</email>
+  <idade>30</idade>
+  <endereco>
+    <rua>Rua das Flores</rua>
+    <numero>456</numero>
+    <cidade>São Paulo</cidade>
+    <estado>SP</estado>
+    <cep>12345-678</cep>
+  </endereco>
+  <telefones>
+    <telefone>
+      <tipo>residencial</tipo>
+      <numero>11-1234-5678</numero>
+    </telefone>
+    <telefone>
+      <tipo>celular</tipo>
+      <numero>11-98765-4321</numero>
+    </telefone>
+  </telefones>
+  <cursos>
+    <curso>
+      <nome>Engenharia de Software</nome>
+      <instituicao>Universidade X</instituicao>
+      <ano_conclusao>2015</ano_conclusao>
+    </curso>
+    <curso>
+      <nome>Mestrado em Ciência da Computação</nome>
+      <instituicao>Universidade Y</instituicao>
+      <ano_conclusao>2018</ano_conclusao>
+    </curso>
+  </cursos>
+</usuario>

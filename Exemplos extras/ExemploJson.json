@@ -1,0 +1,35 @@
+{
+  "id": 123,
+  "nome": "João Silva",
+  "email": "joao.silva@example.com",
+  "idade": 30,
+  "endereco": {
+    "rua": "Rua das Flores",
+    "numero": 456,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "12345-678"
+  },
+  "telefones": [
+    {
+      "tipo": "residencial",
+      "numero": "11-1234-5678"
+    },
+    {
+      "tipo": "celular",
+      "numero": "11-98765-4321"
+    }
+  ],
+  "cursos": [
+    {
+      "nome": "Engenharia de Software",
+      "instituicao": "Universidade X",
+      "ano_conclusao": 2015
+    },
+    {
+      "nome": "Mestrado em Ciência da Computação",
+      "instituicao": "Universidade Y",
+      "ano_conclusao": 2018
+    }
+  ]
+}
