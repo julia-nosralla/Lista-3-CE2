@@ -302,6 +302,87 @@ View(lapras_cries)
 
 <https://pokemoncries.com/>
 
+## OpenWeather
+
+Agora, utilizaremos a API de serviços meteorológicos fornecida pela OpenWeather para obter o clima de Brasília.
+
+Utilizaremos a biblioteca `usethis` para auxiliar no ocultamento das chaves de acesso. Uma alternativa seria utilizar o pacote `dotenv`.
+
+```{r, results='hide'}
+install.packages("usethis")
+```
+
+No chunk seguinte, seremos instados a editar um arquivo .Renviron, onde devemos inserir a a nossa chave de acesso à API da OpenWeather.
+
+```{r}
+library(usethis)
+usethis::edit_r_environ()
+```
+
+Podemos realizar uma consulta diretamente pelo URL da API de dados geográficos:
+
+```{r}
+url_base_geo <- "https://api.openweathermap.org/geo/1.0/direct"
+local <- "Brasília"
+key <- Sys.getenv("OPENWEATHER_API_KEY")
+appid <- base::paste0("appid=", key)
+
+url_local_geo <- base::paste0(url_base_geo, "?q=", local, "&", appid)
+```
+
+A seguir, fazemos a requisição e obtemos o código de status:
+
+```{r}
+loc <- httr::GET(url_local_geo)
+loc$status_code
+```
+
+Obtendo êxito, prosseguimos:
+
+```{r}
+loc_texto <- httr::content(loc, as = "text")
+loc_JSON <- jsonlite::fromJSON(loc_texto)
+```
+
+Dessa forma, podemos obter as coordenadas da cidade:
+
+```{r}
+loc_JSON$lat
+```
+
+```{r}
+loc_JSON$lon
+```
+
+Esta outra API retorna a temperatura em Kelvin por padrão. Para obtermos o valor em graus Celsius, utilizaremos um parâmetro adicional:
+
+```{r}
+url_base_temp <- "https://api.openweathermap.org/data/2.5/weather"
+latitude <- base::paste0("lat=", loc_JSON$lat)
+longitude <- base::paste0("lon=", loc_JSON$lon)
+unidade <- base::paste0("units=", "metric")
+
+url_temp <- base::paste0(
+  url_base_temp, "?",
+  latitude, "&",
+  longitude, "&", 
+  appid, "&",
+  unidade)
+
+temp <- httr::GET(url_temp)
+temp$status_code
+```
+
+```{r}
+temp$content
+```
+
+```{r}
+temp_texto <- httr::content(temp, as = "text")
+temp_JSON <- jsonlite::fromJSON(temp_texto)
+View(temp_JSON$main)
+```
+
 ## OpenAI
 
 ### Usando HTTR2
@@ -328,23 +409,18 @@ Roles: System, Assistant, User, Function
 }
 ```
 
-Em primeiro lugar, vamos instalar os pacotes necessários. Aqui, usaremos o pacote `httr2` pois ele é mais amigável com o uso de pipes do `dplyr`. Além disso, utilizaremos o pacote `usethis` ou `dotenv` para auxiliar no ocultamento das chaves de acesso.
+Em primeiro lugar, vamos instalar os pacotes necessários. Aqui, usaremos o pacote `httr2` pois ele é mais amigável com o uso de pipes do `dplyr`.
 
 ```{r, results='hide'}
 install.packages("httr2")
 install.packages("httpuv")
-install.packages("usethis")
-install.packages("dotenv")
 ```
 
-No chunk seguinte, seremos instados a editar um arquivo .Renviron, onde devemos inserir a a nossa chave de acesso à API da OpenAI.
+Precisamos armazenar a nossa chave de acesso à API da OpenAI em nosso ambiente oculto:
 
 ```{r}
-library(usethis)
 usethis::edit_r_environ()
 ```
-
-Essa função recupera a chave desse ambiente oculto:
 
 ```{r}
 chave <- Sys.getenv("OPENAI_API_KEY")

@@ -1,4 +1,4 @@
----
+--- 
 title: "API's"
 format: 
   revealjs:
@@ -11,67 +11,75 @@ transition: slide
 center: true
 ---
 
-# O que são API's? {background-image="background.jpg"}
+# O que são API's? {background-image=background.jpg}
 
-## Definição {background-image="background.jpg"}
+## Definição {background-image=background.jpg}
 
--   API é a sigla para Application Programming Interface.
+- API é a sigla para Application Programming Interface.
 
--   É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados, serviços e recursos.
+- É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados, serviços e recursos.
 
--   Possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
+- Possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
 
--   Permitem o acesso a dados, sem a necessidade de raspagem de superfície (scraping) ou coleta manual.
+- Permitem o acesso a dados, sem a necessidade de raspagem de superfície (scraping) ou coleta manual.
 
-# Tipos de API {background-image="background.jpg"}
+# Tipos de API {background-image=background.jpg}
 
-## API's privadas {background-image="background.jpg"}
+## API's privadas {background-image=background.jpg}
 
 São internas de uma empresa e são usadas apenas para conectar sistemas e dados dentro da empresa.
 
-## API's públicas {background-image="background.jpg"}
+## API's públicas {background-image=background.jpg}
 
-São abertas ao público e podem ser usadas por qualquer pessoa.
+São abertas ao público e podem ser usadas por qualquer pessoa. 
 
 Pode ou não haver alguma autorização e/ou custo associado a esses tipos de APIs.
 
-## API's de parceiros {background-image="background.jpg"}
+## API's de parceiros {background-image=background.jpg}
 
 Acessíveis apenas por desenvolvedores externos autorizados, em nome de empresas parceiras.
 
-# Como funcionam? {background-image="background.jpg"}
+## Arquitetura e comunicação {background-image=background.jpg}
 
-## Visão geral {background-image="background.jpg"}
+- **REST (Representational State Transfer)**: simples e intuitiva, escalável e amplamente adotada
 
--   As APIs funcionam através de um protocolo, um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar.
+- **SOAP (Simple Object Access Protocol)**: padrões rigorosos, maior segurança
 
--   Elas estabelecem métodos de requisição, formatos de dados a serem recebidos ou retornados, autenticação e autorização de acesso, entre outros aspectos técnicos.
+- **GraphQL**: complexa, flexível e eficiente, permite a requisição de dados específicos
 
--   Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas.
+- **RPC (Remote Procedure Call)**: uso procedural simples, mas pode ser complexa para gerenciamento de recursos
 
-## Etapas {background-image="background.jpg"}
+# Como funcionam? {background-image=background.jpg}
 
-1.  Uma **requisição** é enviada ao sistema que disponibiliza uma API (servidor) por um cliente (que pode ser um navegador, um aplicativo móvel ou outro servidor). Geralmente segue o protocolo HTTP (Hypertext Transfer Protocol).
+## Visão geral {background-image=background.jpg}
 
-2.  O servidor faz o **processamento** da requisição, que pode envolver uma consulta a uma base de dados ou acesso a outras funcionalidades.
+- As APIs funcionam através de um protocolo, um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar.
 
-3.  O servidor envia uma **resposta** ao cliente. Geralmente inclui um código de *status*, indicativo de sucesso ou falha na requisição, e os dados solicitados.
+- Elas estabelecem métodos de requisição, formatos de dados a serem recebidos ou retornados, autenticação e autorização de acesso, entre outros aspectos técnicos. 
 
-## Métodos de requisição HTTP {background-image="background.jpg"}
+- Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas.
+
+## Etapas {background-image=background.jpg}
+
+1. Uma **requisição** é enviada ao sistema que disponibiliza uma API (servidor) por um cliente (que pode ser um navegador, um aplicativo móvel ou outro servidor). Geralmente segue o protocolo HTTP (Hypertext Transfer Protocol).
+
+2. O servidor faz o **processamento** da requisição, que pode envolver uma consulta a uma base de dados ou acesso a outras funcionalidades.
+
+3. O servidor envia uma **resposta** ao cliente. Geralmente inclui um código de *status*, indicativo de sucesso ou falha na requisição, e os dados solicitados.
+
+## Métodos de requisição HTTP {background-image=background.jpg}
 
 Os principais métodos de requisição são:
 
--   `get`: requisição para obter, visualizar ou extrair dados;
+- `get`: requisição para obter, visualizar ou extrair dados;
 
--   `post`: requisição para criar ou enviar novos dados;
+- `post`: requisição para criar ou enviar novos dados;
 
--   `put`: requisição para editar ou atualizar dados;
+- `put`: requisição para editar ou atualizar dados;
 
--   `delete`: requisição para remover dados.
+- `delete`: requisição para remover dados.
 
-## Códigos de Status HTTP {background-image="background.jpg"}
-
-Códigos de status mais comuns:
+## Códigos de Status HTTP {background-image=background.jpg}
 
 -   **1xx (Informacional)**: Requisição recebida, processo em andamento.
 
@@ -82,28 +90,28 @@ Códigos de status mais comuns:
 -   **4xx (Erro de Cliente)**: A requisição apresenta problemas de sintaxe ou não pôde ser completada por algum motivo. (401, 404)
 
 -   **5xx (Erro de Servidor)**: O servidor falhou em completar uma requisição válida.
+ 
+## Requisições e chaves de acesso {background-image=background.jpg}
 
-## Requisições e chaves de acesso {background-image="background.jpg"}
+- É comum que alguns sistemas exijam o uso de chaves para limitar e controlar a quantidade de requisições de acesso.
 
--   É comum que alguns sistemas exijam o uso de chaves para limitar e controlar a quantidade de requisições de acesso.
+- Essa medida visa a segurança do próprio sistema, garantindo a sua disponibilidade e evitando por exemplo ataques de negação de serviço (DoS).
 
--   Essa medida visa a segurança do próprio sistema, garantindo a sua disponibilidade e evitando por exemplo ataques de negação de serviço (DoS).
+## Requisições e chaves de acesso {background-image=background.jpg}
 
-## Requisições e chaves de acesso {background-image="background.jpg"}
+- Além de ajudar a detectar atividades suspeitas, as chaves de acesso também servem para identificar, monitorar e registrar quem consome a API, a fim de obter *insights* a respeito dos padrões de uso do serviço e aprimorá-lo.
 
--   Além de ajudar a detectar atividades suspeitas, as chaves de acesso também servem para identificar, monitorar e registrar quem consome a API, a fim de obter *insights* a respeito dos padrões de uso do serviço e aprimorá-lo.
+- Alguns sistemas monetizam o consumo das API's.
 
--   Alguns sistemas monetizam o consumo das API's.
+- Ainda assim, alguns sistemas permitem que sejam feitas requisições *keyless*.
 
--   Ainda assim, alguns sistemas permitem que sejam feitas requisições *keyless*.
+## Endpoints {background-image=background.jpg}
 
-## Endpoints {background-image="background.jpg"}
+- *Endpoints* são funções ou recursos da API que, dado sua estrutura hierárquica (aninhada, ou em árvore), podem ser acessadas diretamente pelo sistema cliente. 
 
--   *Endpoints* são funções ou recursos da API que, dado sua estrutura hierárquica (aninhada, ou em árvore), podem ser acessadas diretamente pelo sistema cliente.
+- Para acessar um *endpoint* específico dentro de uma API, basta utilizarmos o URL (*Uniform Resource Locator*) principal da API seguido do caminho correspondente a esse *endpoint*.
 
--   Para acessar um *endpoint* específico dentro de uma API, basta utilizarmos o URL (*Uniform Resource Locator*) principal da API seguido do caminho correspondente a esse *endpoint*.
-
-## Endpoints {background-image="background.jpg"}
+## Endpoints {background-image=background.jpg}
 
 ### *Placeholders*
 
@@ -113,25 +121,44 @@ Códigos de status mais comuns:
 
 Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultados de uma requisição. Ex.:
 
-`/usuarios?sexo=masculino`
+```/usuarios?sexo=masculino```
 
-#  {background-image="jason.PNG"}
+Operadores: `&`, `|`
 
-## JSON {background-image="background.jpg"}
+# {background-image=jason.PNG}
 
-### JSON vs. XML
+## JSON (JavaScript Object Notation) {background-image=background.jpg}
 
-### JSON vs. CSV
+- Padrão de indústria
+- Interoperabilidade
+- Legibilidade
+- Parseável
+- Simples, leve e eficiente
+- Vulnerabilidade (DoS, XSS, vazamentos)
 
-# Exemplos de consumo de API usando R {background-image="background.jpg"}
+## JSON vs. XML {background-image=background.jpg}
+
+||JSON|XML|
+|-|-|-|
+|Vantagens|Sintaxe, legibilidade</br>Tipos de dados</br>Performance</br>Interoperabilidade|Validação, integridade e consistência</br>Inclusão de metadados</br>Robustez|
+|Desvantagens|Ausência de metadados</br>Não comentável</br>Vulnerabilidade|Verbosidade</br>Lentidão e maior uso de recursos|
+
+## JSON vs. CSV {background-image=background.jpg}
+
+||JSON|XML|
+|-|-|-|
+|Vantagens|Suporte a estruturas aninhadas/hierarquizadas</br>Tipos de dados e estruturas|Simplicidade e legibilidade</br>Leveza e eficiência</br>Compatibilidade|
+|Desvantagens|Legibilidade para dados simples, tabulares</br>Tamanho, sintaxe adicional|Inadequado para dados complexos</br>Inconsistência (encoding)|
+
+# Exemplos de consumo de API usando R {background-image=background.jpg}
 
 Vejamos alguns exemplos de como interagir com APIs diferentes utilizando linguagem R.
 
-## PokéAPI (Keyless) {background-image="background.jpg"}
+## PokéAPI (Keyless) {background-image=background.jpg}
 
--   [PokéAPI](https://pokeapi.co/)
+[Temos que pegar!](https://pokeapi.co/)
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 ```{r, warning=FALSE, message=FALSE}
 #| echo: TRUE
@@ -142,7 +169,6 @@ if (!require("jsonlite", character.only = TRUE)) {
 
 library(httr)
 library(jsonlite)
-library(stringr)
 
 #Construir URL
  
@@ -155,7 +181,7 @@ pokemon_url <- base::paste0(pokemon_base, pokemon_endpoint)
 pokemon_url
 ```
 
-## Requisição (API call) {background-image="background.jpg"}
+## Requisição (API call) {background-image=background.jpg}
 
 ```{r}
 #| echo: TRUE
@@ -164,7 +190,7 @@ pokemon_call <- httr::GET(pokemon_url)
 
 Retorna uma lista! Nesse caso, com 10 elementos, sendo os de interesse: "url", "status_code" e "content".
 
-## Visualizar a resposta da API {background-image="background.jpg"}
+## Visualizar a resposta da API {background-image=background.jpg}
 
 Para termos uma visão geral resumida do objeto, podemos rodar:
 
@@ -173,10 +199,10 @@ Para termos uma visão geral resumida do objeto, podemos rodar:
 pokemon_call
 ```
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 Vamos tentar dar uma olhada no conteúdo retornado:
-
+  
 ```{r}
 #| echo: TRUE
 pokemon_call$content
@@ -184,9 +210,9 @@ pokemon_call$content
 
 Parece que os dados ainda estão inacessíveis. Aqui, obtemos os dados binários do arquivo em formato hexadecimal.
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
-Agora, vamos converter esses binários em string para ver o conteúdo do arquivo `json`.
+Agora, vamos converter esses binários em string para ver o conteúdo do arquivo `json`. 
 
 ```{r}
 #| echo: TRUE
@@ -197,7 +223,7 @@ pokemon_content
 
 Retorna os dados em formato de texto, mas ainda truncado.
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 Precisamos converter esse string json em uma tabela. Para isso, lançamos mão da função `fromJSON()` do `jsonlite`.
 
@@ -207,10 +233,9 @@ pokemonJSON <- jsonlite::fromJSON(pokemon_content, flatten = TRUE)
 
 pokemonJSON
 ```
-
 Inicialmente, obtemos uma lista
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 Se explorarmos qualquer um dos objetos `pokemonJSON`, notaremos que o que nos interessa está localizado dentro de `results`.
 
@@ -219,10 +244,10 @@ Se explorarmos qualquer um dos objetos `pokemonJSON`, notaremos que o que nos in
 pokemonJSON$results
 ```
 
-## Acessar os dados de cada pokémon {background-image="background.jpg"}
+## Acessar os dados de cada pokémon {background-image=background.jpg}
 
 Uma maneira seria alterar a URL base, adicionando endpoints:
-
+  
 ```{r}
 #| echo: TRUE
 pokemon_url <- "https://pokeapi.co/api/v2/pokemon/{endpoint}"
@@ -230,10 +255,10 @@ pokemon_url <- "https://pokeapi.co/api/v2/pokemon/{endpoint}"
 
 Nesse sentido, separar a base do URL dos endpoints é muito conveniente.
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 Por exemplo, podemos usar essa API para obtermos os stats do Growlithe:
-
+  
 ```{r}
 #| echo: TRUE
 #| results: "hide"
@@ -255,43 +280,45 @@ growlithe_stats <- data.frame(growlithe_JSON$stats)
 growlithe_stats
 ```
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 ```{r}
 #| echo: FALSE
 growlithe_stats
 ```
 
-## Aplicações {background-image="background.jpg"}
+## Aplicações {background-image=background.jpg}
 
 <https://pokemoncries.com/>
 
-## API OpenWeather {background-image="background.jpg"}
+## API OpenWeather {background-image=background.jpg}
 
--   <https://openweathermap.org/api>
+- [https://openweathermap.org/api](https://openweathermap.org/api)
 
-## Obtendo a latitude e longitude da cidade {background-image="background.jpg"}
+## Obtendo a latitude e longitude da cidade {background-image=background.jpg}
 
 Utilizaremos Brasília como exemplo
 
 ```{r}
-#| echo = TRUE
+#| echo = FALSE
 key <- "338cd4eb8b0a910c8b71a4b53af0544b"
-
-url <- str_c("https://api.openweathermap.org/geo/1.0/direct?q=Brasília&appid=", key)
-
-loc <- httr::GET(url)
-loc$status_code
-
 ```
-
-Com base no código de status, verificamos que a requisição foi aceita.
-
-## Conversão do conteúdo {background-image="background.jpg"}
 
 ```{r}
 #| echo: TRUE
 
+url <- base::paste0("https://api.openweathermap.org/geo/1.0/direct?q=Brasília&appid=", key)
+
+loc <- httr::GET(url)
+
+loc$status_code
+```
+
+Com base no código de status, verificamos que a requisição foi aceita.
+
+## Conversão do conteúdo {background-image=background.jpg}
+
+```{r}
 loc_texto <- httr::content(loc, as = "text")
 
 loc_texto
@@ -299,7 +326,7 @@ loc_texto
 
 Nesse arquivo, temos o nome da cidade em várias línguas e, ao final, as informações sobre sua localização
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 ```{r}
 #| echo: TRUE
@@ -311,14 +338,15 @@ longitude <- loc_JSON$lon
 
 Transformamos a latitude e longitude obtidas em objetos que serão utilizados como parâmetros na URL da próxima requisição.
 
-## Requisição do clima atual em Brasília {background-image="background.jpg"}
+## Requisição do clima atual em Brasília {background-image=background.jpg}
 
 O procedimento é o mesmo:
 
 ```{r}
 #| echo: TRUE
 
-url2 <- str_c("https://api.openweathermap.org/data/2.5/weather?lat=", latitude, "&lon=", longitude, "&appid=", key, "&units=metric") #Por default, esta API retorna a temperatura em                                             Kelvin. Para obter a temperatura em Celsius,                                               utilizamos o parâmetro "units=metric"
+url2 <- base::paste0("https://api.openweathermap.org/data/2.5/weather?lat=", latitude, "&lon=", longitude, "&appid=", key, "&units=metric")
+#Por default, esta API retorna a temperatura em Kelvin. Para obter a temperatura em graus Celsius, utilizamos o parâmetro "units=metric"
 
 dados <- httr::GET(url2)
 dados$status_code
@@ -328,17 +356,16 @@ conteudo_dados <- httr::content(dados, as = "text")
 conteudo_JSON <- jsonlite::fromJSON(conteudo_dados)
 ```
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 Obtemos a lista:
 
 ```{r}
 #| echo: TRUE
-
 conteudo_JSON
 ```
 
-#  {background-image="background.jpg"}
+# {background-image=background.jpg}
 
 ```{r}
 #| echo: TRUE
@@ -346,13 +373,14 @@ conteudo_JSON
 conteudo_JSON[["main"]][["temp"]]
 ```
 
-# Site com várias API's públicas {background-image="background.jpg"}
+# Sugestões de API's públicas {background-image=background.jpg}
 
--   [publicapis.io](https://publicapis.io)
--   [Catálogo de APIs Governamentais](https://www.gov.br/conecta/catalogo/)
+- [publicapis.io](https://publicapis.io)
+- [Catálogo de APIs Governamentais](https://www.gov.br/conecta/catalogo)
 
-# Referências {background-image="background.jpg"}
+# Referências {background-image=background.jpg}
 
--   <https://www.alura.com.br/artigos/api>
--   <https://blog.platformbuilders.io/o-que-sao-apis/>
--   <https://aws.amazon.com/pt/compare/the-difference-between-json-xml/> -<https://blog.betrybe.com/json/>
+- [https://www.alura.com.br/artigos/api](https://www.alura.com.br/artigos/api)
+- [https://blog.platformbuilders.io/o-que-sao-apis/](https://blog.platformbuilders.io/o-que-sao-apis/)
+- [https://aws.amazon.com/pt/compare/the-difference-between-json-xml/](https://aws.amazon.com/pt/compare/the-difference-between-json-xml/)
+-[https://blog.betrybe.com/json/](https://blog.betrybe.com/json/)
