@@ -145,7 +145,7 @@ Operadores: `&`, `|`
 
 ## JSON vs. CSV {background-image=background.jpg}
 
-||JSON|XML|
+||JSON|CSV|
 |-|-|-|
 |Vantagens|Suporte a estruturas aninhadas/hierarquizadas</br>Tipos de dados e estruturas|Simplicidade e legibilidade</br>Leveza e eficiência</br>Compatibilidade|
 |Desvantagens|Legibilidade para dados simples, tabulares</br>Tamanho, sintaxe adicional|Inadequado para dados complexos</br>Inconsistência (encoding)|
