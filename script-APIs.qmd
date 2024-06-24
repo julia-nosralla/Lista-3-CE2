@@ -134,7 +134,7 @@ Vejamos alguns exemplos de como interagir com APIs diferentes utilizando linguag
 
 ### Instalar os pacotes necessários
 
-```{r}
+```{r, results='hide'}
 install.packages("httr")
 install.packages("jsonlite")
 ```
@@ -330,7 +330,7 @@ Roles: System, Assistant, User, Function
 
 Em primeiro lugar, vamos instalar os pacotes necessários. Aqui, usaremos o pacote `httr2` pois ele é mais amigável com o uso de pipes do `dplyr`. Além disso, utilizaremos o pacote `usethis` ou `dotenv` para auxiliar no ocultamento das chaves de acesso.
 
-```{r, include = FALSE}
+```{r, results='hide'}
 install.packages("httr2")
 install.packages("httpuv")
 install.packages("usethis")
@@ -384,7 +384,7 @@ Uma forma mais simples, embora abstraída, de interagir com a API do modelo da O
 
 Primeiramente, precisamos instalar os seguintes pacotes:
 
-```{r}
+```{r, results='hide'}
 install.packages(c("devtools", "openai"))
 devtools::install_github("isinaltinkaya/gptchatteR")
 ```
@@ -421,20 +421,30 @@ Essa função deve retornar uma lista. Para obtermos a resposta desejada de fato
 resposta$choices[[1]]
 ```
 
+### Aplicações
+
+https://melissavanbussel.shinyapps.io/talk_to_chatgpt/
+
 ### gptstudio
 
-```{r}
+Esse pacote instala um addin que permite interagir com diversos modelos massivos de linguagem através de um pequeno app Shiny na aba Viewer dentro do próprio RStudio!
+
+```{r, results='hide'}
+# gerenciador de pacotes + versão de desenvolvedor
+install.packages("pak")
+pak::pak("michelnivard/gptstudio")
+```
+
+```{r, results='hide'}
 install.packages("gptstudio")
 ```
+
+Basta instalar o pacote e procurar por ele na paleta de comandos (`Cmd/Ctrl` + `Shift` + `P` \> ChatGPT).
 
 ### Outros pacotes
 
 Outros pacotes que auxiliam nesse tipo de aplicação são:
 
--   \[`gpttools`\]()
+-   \[`gpttools`\](https://jameshwade.github.io/gpttools)
 
 -   \[`tidychatmodels`\](https://github.com/AlbertRapp/tidychatmodels)
-
-### Aplicações
-
-https://melissavanbussel.shinyapps.io/talk_to_chatgpt/
