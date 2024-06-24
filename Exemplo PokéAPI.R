@@ -7,6 +7,8 @@ pokemon <- httr::GET(base)
 
 pokemon$status_code
 
+pokemon$content
+
 #converter o conteúdo para texto no formato json
 
 pokemontexto <- httr::content(pokemon, as = "text")
@@ -19,5 +21,4 @@ View(pokemonJSON)
 View(pokemonJSON$abilities)
 View(pokemonJSON$stats)
 View(pokemonJSON$game_indices)
-
 
