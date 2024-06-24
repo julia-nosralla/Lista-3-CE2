@@ -237,24 +237,16 @@ pokemonJSON2
 Mas há um problema...
 
 ```{r}
-lista_pokemon <- data.frame(pokemonJSON1)
-View(lista_pokemon)
-```
-
-Aqui, ao tentarmos visualizar os dados como dataframe, obtemos um erro, referente a uma diferença na quantidade de linhas. Se explorarmos qualquer um dos objetos `pokemonJSON` usando a função `View()`, notaremos que o que nos interessa está localizado dentro de `results`.
-
-```{r}
 View(pokemonJSON1)
 ```
 
-Dessa forma, precisamos alterar o endpoint.
+Aqui, ao tentarmos visualizar os dados, não obtemos o resultado esperado. Se explorarmos qualquer um dos objetos `pokemonJSON` usando a função `View()`, notaremos que o que nos interessa está localizado dentro de `results`.
 
 ```{r}
-lista_pokemon <- data.frame(pokemonJSON1$results)
-View(lista_pokemon)
+View(pokemonJSON1$results)
 ```
 
-### Acessar os dados de dentro das APIs do dataframe
+### Acessar os dados de cada pokémon
 
 Uma maneira seria alterar a URL base, adicionando endpoints:
 
