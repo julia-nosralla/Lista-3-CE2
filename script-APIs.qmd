@@ -1,0 +1,448 @@
+---
+title: "script-APIs"
+format: html
+editor: visual
+---
+
+# O que são API's?
+
+-   API é a sigla para Application Programming Interface.
+
+-   Analogia com UI.
+
+-   É uma interface de comunicação que um sistema oferece para que outros sistemas acessem suas funções, dados, serviços e recursos.
+
+-   Possibilitam utilizar funções de um aplicativo dentro de outro, facilitando o trabalho dos desenvolvedores.
+
+-   Em particular, permitem o acesso a dados, sem a necessidade de raspagem de superfície (scraping) ou coleta manual.
+
+# Tipos de API
+
+## Por tipo de acesso
+
+### API's privadas
+
+São internas de uma empresa e são usadas apenas para conectar sistemas e dados dentro da empresa.
+
+### API's públicas
+
+São abertas ao público e podem ser usadas por qualquer pessoa.
+
+Pode ou não haver alguma autorização e/ou custo associado a esses tipos de APIs.
+
+### API's de parceiros
+
+Acessíveis apenas por desenvolvedores externos autorizados, em nome de empresas parceiras.
+
+## REST API
+
+# Funcionamento
+
+-   As APIs funcionam através de um protocolo, um conjunto de instruções, padrões e regras que definem como os sistemas devem se comunicar.
+
+-   Elas estabelecem métodos de requisição, formatos de dados a serem recebidos ou retornados, autenticação e autorização de acesso, entre outros aspectos técnicos.
+
+-   Quando um software utiliza uma API, ele envia uma requisição seguindo as diretrizes estabelecidas pela interface, e em resposta recebe os dados ou realiza as ações desejadas.
+
+## Etapas
+
+1.  Uma **requisição** é enviada ao sistema que disponibiliza uma API (servidor) por um cliente (que pode ser um navegador, um aplicativo móvel ou outro servidor). Geralmente segue o protocolo HTTP (Hypertext Transfer Protocol).
+
+2.  O servidor faz o **processamento** da requisição, que pode envolver uma consulta a uma base de dados ou acesso a outras funcionalidades.
+
+3.  O servidor envia uma **resposta** ao cliente. Geralmente inclui um código de *status*, indicativo de sucesso ou falha na requisição, e os dados solicitados.
+
+## Métodos de requisição HTTP
+
+Os principais métodos de requisição são:
+
+-   `get`: requisição para obter, visualizar ou extrair dados;
+
+-   `post`: requisição para criar ou enviar novos dados;
+
+-   `put`: requisição para editar ou atualizar dados;
+
+-   `delete`: requisição para remover dados.
+
+## Códigos de Status HTTP'
+
+Códigos de status mais comuns:
+
+-   **1xx (Informacional)**: Requisição recebida, processo em andamento.
+
+-   **2xx (Exitoso)**: Requisição recebida com sucesso e aceita.
+
+-   **3xx (Redirecionamento)**: É necessário tomar alguma medida para completar a requisição.
+
+-   **4xx (Erro de Cliente)**: A requisição apresenta problemas de sintaxe ou não pôde ser completada por algum motivo. (401, 404)
+
+-   **5xx (Erro de Servidor)**: O servidor falhou em completar uma requisição válida.
+
+## Requisições e chaves de acesso
+
+-   É comum que alguns sistemas exijam o uso de chaves para limitar e controlar a quantidade de requisições de acesso.
+
+-   Essa medida visa a segurança do próprio sistema, garantindo a sua disponibilidade e evitando por exemplo ataques de negação de serviço (DoS).
+
+## Requisições e chaves de acesso
+
+-   Além de ajudar a detectar atividades suspeitas, as chaves de acesso também servem para identificar, monitorar e registrar quem consome a API, a fim de obter *insights* a respeito dos padrões de uso do serviço e aprimorá-lo.
+
+-   Alguns sistemas monetizam o consumo das API's.
+
+-   Ainda assim, alguns sistemas permitem que sejam feitas requisições *keyless*.
+
+## Endpoints
+
+-   *Endpoints* nada mais são do que funções ou recursos da API que, dado sua estrutura hierárquica (aninhada, ou em árvore), podem ser acessadas diretamente pelo sistema cliente.
+
+-   Para acessar um *endpoint* específico dentro de uma API, basta utilizarmos o URL (*Uniform Resource Locator*) principal da API seguido do caminho correspondente a esse *endpoint*.
+
+### *Placeholders*
+
+É comum utilizarmos chaves `{}` como *placeholders* ao nos referirmos a *endpoints*.
+
+### Parâmetros de consulta
+
+Podemos, ainda utilizar parâmetros simples de consulta para filtrar os resultados de uma requisição. Ex.:
+
+`/usuarios?sexo=masculino`
+
+# Tipos de arquivo
+
+## JSON
+
+-   Padrão de indústria
+
+-   Ao fazer uma requisição, os dados retornam em arquivos no formato JSON (Java Script Object Notation)
+
+-   Simplicidade durante o acesso e o armazenamento de diferentes tipos de dados é uma das principais características dos arquivos JSON
+
+-   Esse formato permite a interoperabilidade do formato entre tantos frameworks e linguagens diferentes
+
+-   É facilmente legível tanto por máquinas quanto por humanos
+
+### JSON vs. XML
+
+### JSON vs. CSV
+
+# Exemplos de consumo de API usando R
+
+Vejamos alguns exemplos de como interagir com APIs diferentes utilizando linguagem R.
+
+## PokéAPI (Keyless)
+
+### Instalar os pacotes necessários
+
+```{r}
+install.packages("httr")
+install.packages("jsonlite")
+```
+
+### Carregar os pacotes
+
+```{r}
+library(httr)
+library(jsonlite)
+```
+
+### Construir URLs
+
+```{r}
+pokemon_base <- "https://pokeapi.co/api/v2/pokemon/"
+
+pokemon_endpoint <- ""
+
+pokemon_url <- base::paste0(pokemon_base, pokemon_endpoint)
+
+pokemon_url
+```
+
+### Requisição (API call)
+
+```{r}
+pokemon_call <- httr::GET(pokemon_url)
+```
+
+Retorna uma lista! Nesse caso, com 10 elementos, sendo os de interesse: "url", "status_code" e "content".
+
+### Visualizar a resposta da API
+
+Para termos uma visão geral resumida do objeto, podemos rodar:
+
+```{r}
+pokemon_call
+```
+
+Aqui, podemos notar que obtivemos o status code 200, que significa que a requisição obteve êxito. Se usarmos a função `str()`, obtemos uma visão mais "verbose".
+
+```{r}
+str(pokemon_call)
+```
+
+Algumas formas adicionais de se obter o código de status:
+
+```{r}
+pokemon_call$status_code
+```
+
+```{r}
+str(pokemon_call$status_code)
+```
+
+Vamos tentar dar uma olhada no conteúdo retornado:
+
+```{r}
+pokemon_call$content
+```
+
+Parece que os dados ainda estão inacessíveis. Aqui, obtemos os dados binários do arquivo em formato hexadecimal.
+
+Podemos ver quantas linhas temos, rodando:
+
+```{r}
+str(pokemon_call$content)
+```
+
+Agora, vamos converter esses binários em string para ver o conteúdo do arquivo `json`. Podemos fazer isso de duas formas:
+
+```{r}
+pokemon_content1 <- base::rawToChar(pokemon_call$content)
+
+pokemon_content1
+```
+
+```{r}
+pokemon_content2 <- httr::content(pokemon_call, as = "text")
+
+pokemon_content2
+```
+
+Ambas retornam os dados em formato de texto, mas ainda truncado.
+
+Precisamos converter todo esse string json em uma tabela. Para isso, lançamos mão da função `fromJSON()` do pacote `jsonlite`.
+
+```{r}
+pokemonJSON1 <- jsonlite::fromJSON(pokemon_content1, flatten = TRUE)
+
+pokemonJSON1
+```
+
+```{r}
+pokemonJSON2 <- jsonlite::fromJSON(pokemon_content2, flatten = TRUE)
+
+pokemonJSON2
+```
+
+Mas há um problema...
+
+```{r}
+lista_pokemon <- data.frame(pokemonJSON1)
+View(lista_pokemon)
+```
+
+Aqui, ao tentarmos visualizar os dados como dataframe, obtemos um erro, referente a uma diferença na quantidade de linhas. Se explorarmos qualquer um dos objetos `pokemonJSON` usando a função `View()`, notaremos que o que nos interessa está localizado dentro de `results`.
+
+```{r}
+View(pokemonJSON1)
+```
+
+Dessa forma, precisamos alterar o endpoint.
+
+```{r}
+lista_pokemon <- data.frame(pokemonJSON1$results)
+View(lista_pokemon)
+```
+
+### Acessar os dados de dentro das APIs do dataframe
+
+Uma maneira seria alterar a URL base, adicionando endpoints:
+
+```{r}
+pokemon_url <- "https://pokeapi.co/api/v2/pokemon/{endpoint}"
+```
+
+Nesse sentido, separar a base do URL dos endpoints é muito conveniente.
+
+Por exemplo, podemos usar essa API para obtermos os stats do Growlithe:
+
+```{r}
+pokemon_base <- "https://pokeapi.co/api/v2/pokemon/"
+
+growlithe_endpoint <- "58"
+
+growlithe_url <- base::paste0(pokemon_base, growlithe_endpoint)
+
+growlithe_call <- httr::GET(growlithe_url)
+
+growlithe_content <- httr::content(growlithe_call, as = "text")
+
+growlithe_JSON <- jsonlite::fromJSON(growlithe_content, flatten = TRUE)
+
+growlithe_stats <- data.frame(growlithe_JSON$stats)
+
+View(growlithe_stats)
+```
+
+Aqui, não utilizamos pipes pois o pacote mais adequado nesse caso seria o `httr2`.
+
+Um outro exemplo seria obtermos os cries do Lapras:
+
+```{r}
+pokemon_base <- "https://pokeapi.co/api/v2/pokemon/"
+
+lapras_endpoint <- "131"
+
+lapras_url <- base::paste0(pokemon_base, lapras_endpoint)
+
+lapras_call <- httr::GET(lapras_url)
+
+lapras_content <- httr::content(lapras_call, as = "text")
+
+lapras_JSON <- jsonlite::fromJSON(lapras_content, flatten = TRUE)
+
+lapras_cries <- data.frame(lapras_JSON$cries)
+
+View(lapras_cries)
+```
+
+### Aplicações
+
+<https://pokemoncries.com/>
+
+## OpenAI
+
+### Usando HTTR2
+
+Vamos fazer nosso próprio chatbot para consultar LLMs como o GPT-3.5, usando o R e consumindo a API da OpenAI!
+
+```{bash}
+curl https://api.openai.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -d '{
+     "model": "gpt-3.5-turbo",
+     "messages": [{"role": "user", "content": "Say this is a test!"}],
+     "temperature": 0.7
+   }'
+```
+
+Roles: System, Assistant, User, Function
+
+```{json}
+{
+  "model": "gpt-3.5-turbo",
+  "messages": [{"role": "system", "content": "\n\nYou are a helpful assistant.\n"}, {"role": "user", "content": "\n\nHello!\n"}]
+}
+```
+
+Em primeiro lugar, vamos instalar os pacotes necessários. Aqui, usaremos o pacote `httr2` pois ele é mais amigável com o uso de pipes do `dplyr`. Além disso, utilizaremos o pacote `usethis` ou `dotenv` para auxiliar no ocultamento das chaves de acesso.
+
+```{r, include = FALSE}
+install.packages("httr2")
+install.packages("httpuv")
+install.packages("usethis")
+install.packages("dotenv")
+```
+
+No chunk seguinte, seremos instados a editar um arquivo .Renviron, onde devemos inserir a a nossa chave de acesso à API da OpenAI.
+
+```{r}
+library(usethis)
+usethis::edit_r_environ()
+```
+
+Essa função recupera a chave desse ambiente oculto:
+
+```{r}
+chave <- Sys.getenv("OPENAI_API_KEY")
+```
+
+O texto seguinte conterá o nosso prompt fornecido ao nosso "ChatGPT".
+
+```{r}
+texto <- list(
+  model = "gpt-3.5-turbo",
+  messages = list(list(
+    role = "user", content = "Hello, chatbot!"
+  ))
+)
+```
+
+```{r}
+library(httr2)
+
+url_base <- "https://api.openai.com/v1"
+requisicao <- httr2::request(url_base)
+resposta <- requisicao |>
+  httr2::req_url_path_append("chat/completions") |>
+  httr2::req_auth_bearer_token(token = chave) |>
+  httr2::req_headers("Content-Type" = "application/json") |>
+  httr2::req_user_agent("OpenAI-Tutorial") |>
+  httr2::req_body_json(texto) |>
+  httr2::req_retry(max_tries = 4) |>
+  httr2::req_throttle(rate = 15) |>
+  #httr2::req_dry_run()
+  httr2::req_perform()
+```
+
+### gptchatteR
+
+Uma forma mais simples, embora abstraída, de interagir com a API do modelo da OpenAI é utilizando o pacote \[`gptchatteR`\](\[https://github.com/isinaltinkaya/gptchatteR).
+
+Primeiramente, precisamos instalar os seguintes pacotes:
+
+```{r}
+install.packages(c("devtools", "openai"))
+devtools::install_github("isinaltinkaya/gptchatteR")
+```
+
+A seguir, inicializamos o gptchatteR e utilizamos a função `chatter.auth()` para prover nossa chave de autenticação à API.
+
+```{r}
+library(gptchatteR)
+
+gptchatteR::chatter.auth(chave)
+```
+
+Assim, podemos prosseguir criando uma sessão de interação com o ChatGPT:
+
+```{r}
+chatter.create()
+```
+
+E, finalmente, utilizamos a função `chatter.chat()` para realizar o nosso prompt.
+
+```{r}
+resposta <- chatter.chat("Hello, chat!", return_response = TRUE, feed = TRUE)
+```
+
+```{bash}
+Error: OpenAI API request failed [404]:
+
+The model `text-davinci-003` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations
+```
+
+Essa função deve retornar uma lista. Para obtermos a resposta desejada de fato, precisamos selecionar o elemento `choices` da lista.
+
+```{r}
+resposta$choices[[1]]
+```
+
+### gptstudio
+
+```{r}
+install.packages("gptstudio")
+```
+
+### Outros pacotes
+
+Outros pacotes que auxiliam nesse tipo de aplicação são:
+
+-   \[`gpttools`\]()
+
+-   \[`tidychatmodels`\](https://github.com/AlbertRapp/tidychatmodels)
+
+### Aplicações
+
+https://melissavanbussel.shinyapps.io/talk_to_chatgpt/
