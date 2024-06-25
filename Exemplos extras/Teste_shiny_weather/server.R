@@ -7,7 +7,7 @@ library(shiny)
 
 # Definir funções para obter coordenadas e dados meteorológicos
 obter_coordenadas <- function(cidade, pais) {
-  acess_token_openweather <- "eb1463228c50bfa03dc1d03c23db7e5e"
+  acess_token_openweather <- "WRITE YOUR KEY HERE"
   url_base <- "http://api.openweathermap.org"
   
   # Montar a URL da API de geocodificação
