@@ -6,7 +6,7 @@ pacman::p_load("tidyverse", "httr", "jsonlite")
 #----------------------------------------------------
 #           API: GEOCODIFICAÇÃO
 
-acess_token_openweather <-"eb1463228c50bfa03dc1d03c23db7e5e"
+acess_token_openweather <-"WRITE YOUR KEY HERE"
 url_base <- "http://api.openweathermap.org"
 
 city <- "Brasilia"
